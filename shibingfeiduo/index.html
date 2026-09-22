@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>士兵非多特的故事 - 阿尔萨斯战记与传奇人物资料库</title>
+    <meta name="description" content="士兵非多特的故事专题页面，详细记录了非多特在阿尔萨斯战争中的生平、性格特点、经典战役以及他对帝国军队的影响。提供人物传记、历史背景分析和相关影视作品推荐。">
+    <meta name="keywords" content="士兵非多特的故事, 非多特, 阿尔萨斯, 帝国陆军, 历史人物, 资料库">
+    <style>
+        :root {
+            --primary-color: #3e2723;
+            --secondary-color: #5d4037;
+            --accent-color: #d84315;
+            --text-dark: #212121;
+            --text-gray: #616161;
+            --bg-light: #f5f5f5;
+            --bg-white: #ffffff;
+            --border-radius: 8px;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--bg-white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .cta-button {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .cta-button:hover {
+            background-color: #bf360c;
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(62, 39, 35, 0.85), rgba(62, 39, 35, 0.7)), url('https://picsum.photos/seed/soldier/1600/900') no-repeat center center/cover;
+            color: white;
+            padding: 8rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .hero-btn {
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .hero-btn.primary {
+            background-color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+        }
+
+        .hero-btn.primary:hover {
+            background-color: transparent;
+            color: white;
+        }
+
+        .hero-btn.secondary {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .hero-btn.secondary:hover {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        /* Character Profile Section */
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .profile-card {
+            background: var(--bg-white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            padding-bottom: 1.5rem;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            background-color: #ddd;
+        }
+
+        .profile-info h3 {
+            margin-top: 1rem;
+            color: var(--primary-color);
+        }
+
+        .profile-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background-color: var(--bg-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-gray);
+        }
+
+        .character-details h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 1rem;
+        }
+
+        .detail-block {
+            margin-bottom: 2rem;
+        }
+
+        .detail-block h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            color: var(--secondary-color);
+        }
+
+        .detail-block p {
+            color: var(--text-gray);
+            text-align: justify;
+        }
+
+        /* Timeline Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background-color: #e0e0e0;
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+            width: 50%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            padding-right: 3rem;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 3rem;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 2px var(--accent-color);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -10px;
+        }
+
+        .timeline-content {
+            background: var(--bg-white);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .timeline-date {
+            font-weight: bold;
+            color: var(--accent-color);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Facts Grid */
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .fact-card {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: transform 0.3s;
+            border-top: 4px solid var(--accent-color);
+        }
+
+        .fact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .fact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .fact-card h4 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .fact-card p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-white);
+            margin-bottom: 1rem;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            color: var(--primary-color);
+            background-color: #fafafa;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease;
+            color: var(--text-gray);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 500px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #d7ccc8;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-col h5 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem 0;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .profile-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 50px;
+                padding-right: 0;
+                text-align: left;
+            }
+
+            .timeline-item:nth-child(odd) {
+                left: 0;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-dot,
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: 10px;
+                right: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <span>⚔️</span> 阿尔萨斯战记
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#profile">人物传记</a></li>
+                    <li><a href="#timeline">生平时间线</a></li>
+                    <li><a href="#facts">关键特征</a></li>
+                    <li><a href="#faq">常见问答</a></li>
+                </ul>
+            </nav>
+            <a href="#profile" class="cta-button">阅读故事</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>士兵非多特的故事</h1>
+                <p>在动荡的阿尔萨斯战场上，一位普通士兵如何书写不平凡的传奇。探索非多特的性格、抉择与历史意义。</p>
+                <div class="hero-buttons">
+                    <a href="#profile" class="hero-btn primary">开始探索</a>
+                    <a href="#timeline" class="hero-btn secondary">查看时间线</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profile Section -->
+        <section id="profile" class="section">
+            <div class="container">
+                <h2 class="section-title">人物档案</h2>
+                <div class="profile-grid">
+                    <article class="profile-card">
+                        <img src="https://picsum.photos/seed/nonduot/400/400" alt="士兵非多特画像" class="profile-img">
+                        <div class="profile-info">
+                            <h3>非多特</h3>
+                            <p style="color:var(--text-gray); margin-bottom:1rem;">帝国陆军下士 / 战地观察员</p>
+                            <div class="profile-tags">
+                                <span class="tag">坚毅</span>
+                                <span class="tag">忠诚</span>
+                                <span class="tag">悲剧色彩</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="character-details">
+                        <h3>关于非多特的生平</h3>
+                        <div class="detail-block">
+                            <h4>出身与入伍</h4>
+                            <p>非多特并非出身显赫的军事贵族，而是来自阿尔萨斯地区的一名普通农民。在战争爆发前夕，为了保卫家乡，他被迫脱下农装，换上了帝国陆军的制服。他的入伍并非出于对权力的渴望，而是源于一种朴素的公民责任感和对秩序的维护。</p>
+                        </div>
+                        <div class="detail-block">
+                            <h4>战场表现</h4>
+                            <p>在战场上，非多特展现出了惊人的适应能力和生存智慧。他不像传统的指挥官那样热衷于华丽的战术，而是更擅长观察地形、利用环境以及与战友建立紧密的信任关系。他在多次战役中作为通讯兵和突击队成员，执行了极为危险的侦察任务，多次死里逃生。</p>
+                        </div>
+                        <div class="detail-block">
+                            <h4>性格特征</h4>
+                            <p>他的性格复杂而多面。在战友眼中，他是值得信赖的伙伴，沉默寡言但行动力强；在上级眼中，他有时过于固执，难以完全服从那些脱离实际的命令。这种“不听话”的特质，反而使他在混乱的战局中保持了难得的清醒，但也为他日后的命运埋下了伏笔。</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section id="timeline" class="section" style="background-color: #ebebeb;">
+            <div class="container">
+                <h2 class="section-title">生平时间线</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">1914年 - 入伍</span>
+                            <p>非多特在战争初期加入帝国预备役部队，随军进驻边境。他在行军途中表现出了极强的体能和坚韧的意志，很快被选拔为下士。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">1915年 - 第一次战役</span>
+                            <p>在第一次马恩河战役的侧翼掩护行动中，非多特所在的连队遭遇重创。他在混乱中独自坚守阵地，成功掩护了伤员撤退，获得了首枚勋章。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">1916年 - 沟壕战</span>
+                            <p>转入堑壕战后，非多特开始记录战地见闻。他的笔记详细描述了战壕中的生活状态以及士兵们对战争的不同态度，这些记录后来成为了研究当时士兵心理的重要资料。</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <span class="timeline-date">1918年 - 战役转折</span>
+                            <p>在最后的大反攻中，非多特面临了职业生涯最大的道德抉择：是执行一个可能导致大量无谓伤亡的自杀式冲锋命令，还是违抗命令保护剩余的士兵？他的选择改变了整个小队的命运。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Features / Facts -->
+        <section id="facts" class="section">
+            <div class="container">
+                <h2 class="section-title">关键特征解析</h2>
+                <div class="facts-grid">
+                    <div class="fact-card">
+                        <div class="fact-icon">🧠</div>
+                        <h4>清醒的观察者</h4>
+                        <p>非多特不同于狂热的宣传机器，他更愿意用冷静的视角去审视战争的荒谬性。</p>
+                    </div>
+                    <div class="fact-card">
+                        <div class="fact-icon">🤝</div>
+                        <h4>团队的粘合剂</h4>
+                        <p>他擅长在高压环境下凝聚团队士气，是许多年轻士兵的精神支柱。</p>
+                    </div>
+                    <div class="fact-card">
+                        <div class="fact-icon">📜</div>
+                        <h4>历史的见证者</h4>
+                        <p>他的个人经历折射出整个阿尔萨斯地区在战争中的变迁与苦难。</p>
+                    </div>
+                    <div class="fact-card">
+                        <div class="fact-icon">⚔️</div>
+                        <h4>技艺精湛的战士</h4>
+                        <p>精通步枪射击和爆破技术，多次在绝境中利用简易工具制造武器。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section" style="background-color: #ebebeb;">
+            <div class="container">
+                <h2 class="section-title">常见问答</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">非多特在历史上真实存在吗？</div>
+                        <div class="faq-answer">
+                            <p>非多特是以历史原型为蓝本创作的人物。他融合了当时许多普通士兵的经历，代表了那一代在战争中成长、觉醒并最终面对和平的阿尔萨斯青年。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">他的故事主要反映了什么主题？</div>
+                        <div class="faq-answer">
+                            <p>故事主要探讨了个人在宏大历史叙事下的挣扎、忠诚与良知的冲突，以及战争对普通人生活造成的深远影响。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">为什么他的名字在中文语境中常被称为“非多特”？</div>
+                            <div class="faq-answer">
+                                <p>这是该角色在中文译本中的标准音译，源自德语原名 "Friedrich" 的变体，既保留了原名的音韵，又符合中文读者的阅读习惯。</p>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h5>阿尔萨斯战记</h5>
+                    <p style="font-size: 0.9rem; line-height: 1.8;">
+                        致敬所有在战争中付出代价的普通士兵。这里致力于还原真实的历史细节，讲述那些被遗忘的故事。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h5>相关链接</h5>
+                    <ul>
+                        <li><a href="#">历史档案库</a></li>
+                        <li><a href="#">军事地图集</a></li>
+                        <li><a href="#">老兵口述历史</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>关于本站</h5>
+                    <ul>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">内容规范</a></li>
+                        <li><a href="#">联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 阿尔萨斯战记资料库. All Rights Reserved. 仅供学习与参考.
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+
+    <script>
+        // FAQ Accordion Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
