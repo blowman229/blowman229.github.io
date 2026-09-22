@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>按键精灵脚本 - 自动化操作工具与脚本教程资源站</title>
+    <meta name="description" content="本站提供专业的按键精灵脚本分享、编程教程、常用代码片段及自动化工具下载。涵盖模拟鼠标键盘操作、游戏辅助脚本、办公自动化等场景，帮助用户轻松实现重复性任务的自动化处理。">
+    <meta name="keywords" content="按键精灵脚本, 按键精灵教程, 按键精灵代码, 自动化脚本, 模拟鼠标键盘, 电脑辅助工具">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #3b82f6;
+            --primary-dark: #2563eb;
+            --secondary-color: #10b981;
+            --text-main: #1f2937;
+            --text-secondary: #4b5563;
+            --bg-body: #f3f4f6;
+            --bg-card: #ffffff;
+            --border-color: #e5e7eb;
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-body);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section {
+            padding: 3rem 0;
+        }
+
+        .section-header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-desc {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-card);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .btn-cta {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+        }
+
+        .btn-cta:hover {
+            background-color: var(--primary-dark);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #60a5fa 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .btn-hero {
+            padding: 0.75rem 2rem;
+            border-radius: 0.375rem;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: white;
+            color: var(--primary-dark);
+        }
+
+        .btn-outline {
+            border: 2px solid white;
+            color: white;
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #eff6ff;
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 0.75rem;
+            color: var(--text-main);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Code Showcase */
+        .code-section {
+            background-color: var(--bg-card);
+        }
+
+        .code-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .code-info h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .code-info p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .code-example {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .code-comment {
+            color: #64748b;
+            margin-right: 0.5rem;
+        }
+
+        .code-keyword {
+            color: #c084fc;
+        }
+
+        .code-function {
+            color: #60a5fa;
+        }
+
+        .code-string {
+            color: #4ade80;
+        }
+
+        /* Categories */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .category-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .category-img {
+            height: 160px;
+            background-color: #e5e7eb;
+            position: relative;
+        }
+        
+        .category-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .category-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0,0,0,0.7);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+        }
+
+        .category-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .category-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .category-content p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            flex: 1;
+        }
+
+        .category-link {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: var(--bg-card);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.5rem 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .faq-answer {
+            color: var(--text-secondary);
+            padding-left: 1.5rem;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111827;
+            color: #d1d5db;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem 0;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .code-container {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                <span>AutoScript</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#features" class="active">功能特性</a></li>
+                    <li><a href="#categories">脚本分类</a></li>
+                    <li><a href="#tutorial">教程资源</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="btn-cta">下载客户端</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>让重复工作自动化<br>释放你的双手与创造力</h1>
+            <p>专业的按键精灵脚本分享平台，提供从入门到进阶的编程教程、实用工具与丰富代码库。无论是办公效率提升还是游戏辅助，我们都能满足需求。</p>
+            <div class="hero-buttons">
+                <a href="#tutorial" class="btn-hero btn-primary">开始学习</a>
+                <a href="#" class="btn-hero btn-outline">浏览脚本库</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">核心功能亮点</h2>
+                <p class="section-desc">为什么选择我们的脚本解决方案？</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                    </div>
+                    <h3>模拟精准操作</h3>
+                    <p>支持鼠标点击、移动、滚轮及键盘输入的精确模拟，兼容多种输入设备，操作流畅自然。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+                    </div>
+                    <h3>智能循环逻辑</h3>
+                    <p>内置强大的循环、判断与延时函数，轻松实现复杂的自动化任务流程，无需编写复杂逻辑。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                    </div>
+                    <h3>可视化编辑器</h3>
+                    <p>提供直观的拖拽式脚本编辑器，适合初学者快速上手，同时支持代码模式进行高级开发。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    </div>
+                    <h3>丰富资源库</h3>
+                    <p>海量用户分享的按键精灵脚本，涵盖游戏、办公、测试等多个领域，一键即用。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Code Showcase Section -->
+    <section id="tutorial" class="section code-section">
+        <div class="container">
+            <div class="code-container">
+                <div class="code-info">
+                    <span style="color:var(--primary-color); font-weight:600;">新手入门示例</span>
+                    <h3>简单的鼠标点击脚本</h3>
+                    <p>这是最基础的按键精灵脚本示例。它将在屏幕中央位置执行两次鼠标点击操作，并伴随简单的延时。您可以直接复制这段代码到编辑器中运行。</p>
+                    <ul style="color:var(--text-secondary); margin-bottom: 1.5rem;">
+                        <li style="margin-bottom:0.5rem;">✅ 无需安装额外驱动</li>
+                        <li style="margin-bottom:0.5rem;">✅ 支持Windows全屏游戏环境</li>
+                        <li>✅ 开源可修改逻辑</li>
+                    </ul>
+                    <a href="#" class="btn-cta">查看更多教程</a>
+                </div>
+                <div class="code-example">
+<pre><code><span class="code-comment">' 定义变量</span>
+<span class="code-keyword">Dim</span> x, y
+
+<span class="code-comment">' 获取屏幕中心坐标</span>
+x = <span class="code-function">Desktop.Width</span>() \ 2
+y = <span class="code-function">Desktop.Height</span>() \ 2
+
+<span class="code-comment">' 循环执行两次点击</span>
+<span class="code-keyword">For</span> i = <span class="code-string">1</span> <span class="code-keyword">To</span> <span class="code-string">2</span>
+    <span class="code-comment">' 移动鼠标到中心位置</span>
+    <span class="code-function">MoveTo</span> x, y
+    <span class="code-comment">' 执行左键点击</span>
+    <span class="code-function">LeftClick</span> <span class="code-string">1</span>
+    <span class="code-comment">' 延时1秒</span>
+    <span class="code-function">Delay</span> <span class="code-string">1000</span>
+<span class="code-keyword">Next</span>
+
+<span class="code-comment">' 提示运行完成</span>
+<span class="code-function">MessageBox</span> <span class="code-string">"脚本执行完毕！"</span></code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">热门脚本分类</h2>
+                <p class="section-desc">按需求查找您需要的自动化工具</p>
+            </div>
+            <div class="category-grid">
+                <article class="category-card">
+                    <div class="category-img">
+                        <span class="category-badge">办公效率</span>
+                        <img src="https://picsum.photos/seed/office/400/250" alt="办公自动化脚本">
+                    </div>
+                    <div class="category-content">
+                        <h3>办公自动化</h3>
+                        <p>自动填表、数据录入、批量文件重命名、邮件群发等日常办公辅助工具，大幅提升工作效率。</p>
+                        <a href="#" class="category-link">查看脚本 &rarr;</a>
+                    </div>
+                </article>
+
+                <article class="category-card">
+                    <div class="category-img">
+                        <span class="category-badge">游戏辅助</span>
+                        <img src="https://picsum.photos/seed/game/400/250" alt="游戏辅助脚本">
+                    </div>
+                    <div class="category-content">
+                        <h3>游戏辅助脚本</h3>
+                        <p>挂机刷怪、自动寻路、脚本连招、挂机升级等辅助工具，帮助玩家解放双手享受游戏。</p>
+                        <a href="#" class="category-link">查看脚本 &rarr;</a>
+                    </div>
+                </article>
+
+                <article class="category-card">
+                    <div class="category-img">
+                        <span class="category-badge">测试工具</span>
+                        <img src="https://picsum.photos/seed/test/400/250" alt="软件测试脚本">
+                    </div>
+                    <div class="category-content">
+                        <h3>软件测试</h3>
+                        <p>自动化回归测试、UI点击测试、压力测试脚本，帮助开发者和测试人员发现软件漏洞。</p>
+                        <a href="#" class="category-link">查看脚本 &rarr;</a>
+                    </div>
+                </article>
+
+                <article class="category-card">
+                    <div class="category-img">
+                        <span class="category-badge">系统维护</span>
+                        <img src="https://picsum.photos/seed/system/400/250" alt="系统维护脚本">
+                    </div>
+                    <div class="category-content">
+                        <h3>系统维护</h3>
+                        <p>自动清理垃圾文件、定期备份、系统重启、定时关机等系统级自动化任务管理。</p>
+                        <a href="#" class="category-link">查看脚本 &rarr;</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">常见问题解答</h2>
+                <p class="section-desc">关于按键精灵脚本的使用疑问</p>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="faq-item">
+                    <div class="faq-question">按键精灵脚本安全吗？会被杀毒软件拦截吗？</div>
+                    <div class="faq-answer">脚本本身是纯文本代码，本身不具备病毒特征。但在运行过程中，脚本模拟了键盘和鼠标操作，杀毒软件可能会将其识别为可疑行为。建议在虚拟机中测试或添加信任白名单。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">按键精灵支持哪些操作系统？</div>
+                    <div class="faq-answer">主要支持 Windows 7 及以上版本的操作系统。对于 Windows 10/11，需要根据具体的杀毒软件设置调整权限。目前不支持 macOS 或 Linux 系统。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">我可以自己编写脚本吗？需要什么基础？</div>
+                    <div class="faq-answer">当然可以。按键精灵提供了类似于 Basic 的编程语法，非常容易上手。您只需要了解一些基本的编程概念（如变量、循环、判断）即可开始编写。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">使用脚本进行游戏挂机会被封号吗？</div>
+                    <div class="faq-answer">使用脚本进行游戏挂机属于违规行为，存在较高的封号风险。本站提供的脚本仅供学习研究和技术交流使用，请勿用于破坏游戏平衡或违规操作。</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 1rem;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                        <span style="color:white;">AutoScript</span>
+                    </div>
+                    <p style="font-size: 0.9rem; color: #9ca3af;">
+                        专注于自动化脚本分享与编程技术交流，致力于为开发者提供最优质的技术文档和代码资源。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">脚本下载中心</a></li>
+                        <li><a href="#">官方编程文档</a></li>
+                        <li><a href="#">社区论坛</a></li>
+                        <li><a href="#">提交脚本</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助支持</h4>
+                    <ul>
+                        <li><a href="#">新手入门指南</a></li>
+                        <li><a href="#">常见问题 (FAQ)</a></li>
+                        <li><a href="#">联系管理员</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">QQ交流群</a></li>
+                        <li><a href="#">GitHub 仓库</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 AutoScript Script Center. All rights reserved. 仅供学习交流使用。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+                  </html>
