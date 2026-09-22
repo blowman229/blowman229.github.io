@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="警花与警犬 - 专注于警犬训练、警务实战应用及警犬犬种介绍的专业平台。了解警犬在搜救、缉毒、护卫中的重要作用，以及警犬训练基地的日常运作。">
+    <meta name="keywords" content="警花与警犬, 警犬训练, 警犬品种, 警犬搜救, 警犬基地, 警犬工作">
+    <title>警花与警犬-警务实战与警犬训练基地介绍</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #1a3c5e; /* 深蓝：代表警队、沉稳 */
+            --accent-color: #d4af37; /* 金色：代表荣誉、勋章 */
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-light: #f4f6f9;
+            --bg-white: #ffffff;
+            --spacing-unit: 16px;
+            --border-radius: 8px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            width: 100%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: var(--bg-white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(rgba(26, 60, 94, 0.8), rgba(26, 60, 94, 0.6)), url('https://picsum.photos/seed/police/1920/1080.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: #e5c15e;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid #fff;
+            color: #fff;
+            margin-left: 15px;
+        }
+
+        .btn-outline:hover {
+            background-color: #fff;
+            color: var(--primary-color);
+        }
+
+        /* 介绍与定义 */
+        .intro-section {
+            padding: 60px 0;
+            background-color: var(--bg-white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .section-title .divider {
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 0 auto;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .intro-text p {
+            margin-bottom: 15px;
+            color: var(--text-light);
+            font-size: 16px;
+            text-align: justify;
+        }
+
+        .intro-highlight {
+            background-color: var(--bg-light);
+            padding: 20px;
+            border-left: 4px solid var(--accent-color);
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        /* 犬种分类 */
+        .breeds-section {
+            padding: 60px 0;
+            background-color: var(--bg-light);
+        }
+
+        .breed-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .breed-card {
+            background: var(--bg-white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .breed-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .breed-img {
+            height: 180px;
+            width: 100%;
+            object-fit: cover;
+            background-color: #ddd;
+        }
+
+        .breed-info {
+            padding: 20px;
+        }
+
+        .breed-info h3 {
+            font-size: 20px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .breed-info p {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #eef2f7;
+            color: var(--primary-color);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* 实战应用 */
+        .application-section {
+            padding: 60px 0;
+            background-color: var(--bg-white);
+        }
+
+        .app-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .app-list {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .app-item {
+            display: flex;
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .app-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .app-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-color);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .app-content h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .app-content p {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* 训练基地/流程 */
+        .training-section {
+            padding: 60px 0;
+            background-color: var(--bg-light);
+        }
+
+        .training-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-top: 40px;
+        }
+
+        .training-steps::before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #ddd;
+            z-index: 0;
+        }
+
+        .step {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            width: 23%;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background-color: var(--bg-white);
+            border: 2px solid var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .step h4 {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        /* 常见问题 */
+        .faq-section {
+            padding: 60px 0;
+            background-color: var(--bg-white);
+        }
+
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+        }
+
+        .faq-question {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary-color);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 24px;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            margin-top: 15px;
+            color: var(--text-light);
+            font-size: 15px;
+            display: none;
+            line-height: 1.6;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 50px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            font-size: 14px;
+            color: #999;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                padding: 0 10px;
+            }
+            
+            nav ul {
+                display: none; /* 简化处理，移动端隐藏菜单 */
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                height: 400px;
+            }
+
+            .hero-content h1 {
+                font-size: 32px;
+            }
+
+            .intro-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .training-steps {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .training-steps::before {
+                display: none;
+            }
+
+            .step {
+                width: 100%;
+            }
+
+            .step-number {
+                margin: 0 auto 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 导航栏 -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <span>🐕</span> 警花与警犬
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#intro" class="active">基地简介</a></li>
+                    <li><a href="#breeds">警犬品种</a></li>
+                    <li><a href="#application">实战应用</a></li>
+                    <li><a href="#training">训练流程</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+                <div class="mobile-menu-btn">☰</div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 首屏 Hero -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>忠诚的守护者</h1>
+            <p>了解警犬在警务工作中的核心作用，探索人与犬的默契配合，守护城市安宁。</p>
+            <div class="hero-btns">
+                <a href="#breeds" class="btn btn-primary">了解警犬品种</a>
+                <a href="#training" class="btn btn-outline">查看训练基地</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 基地简介 -->
+    <section id="intro" class="intro-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>关于警犬基地</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="intro-grid">
+                <div class="intro-img">
+                    <img src="https://picsum.photos/seed/dog1/600/400.jpg" alt="警犬训练场景" style="width: 100%; border-radius: var(--border-radius); box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                </div>
+                <div class="intro-text">
+                    <p>警犬基地是公安机关专门负责警犬繁育、训练、管理和使用的专业机构。这里不仅是警犬的“家”，更是它们从幼犬成长为“警界战士”的摇篮。</p>
+                    <p>警犬与训导员（通常被称为“警花”或“警草”）之间建立了深厚的战友之情。通过科学的训练方法和严格的日常管理，警犬具备了服从指挥、嗅觉追踪、搜捕嫌疑人、排爆、缉毒等专业技能，是现代警务工作中不可或缺的重要辅助力量。</p>
+                    <div class="intro-highlight">
+                        “忠诚刻在骨子里，使命扛在肩上。” —— 这不仅是警犬的写照，也是每一位警犬训导员的誓言。
+                    </div>
+                    <p>我们致力于推广警犬文化，普及警务知识，让更多人了解这些无言的战友。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 警犬品种 -->
+    <section id="breeds" class="breeds-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>常见警犬品种</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="breed-grid">
+                <!-- 卡片 1 -->
+                <article class="breed-card">
+                    <img src="https://picsum.photos/seed/shepherd/400/300.jpg" alt="德国牧羊犬" class="breed-img">
+                    <div class="breed-info">
+                        <h3>德国牧羊犬</h3>
+                        <p>被称为“万能警犬”，体型高大，外形威猛，服从性高，嗅觉灵敏，广泛用于巡逻、护卫和搜救。</p>
+                        <span class="tag">全能型</span>
+                        <span class="tag">护卫</span>
+                    </div>
+                </article>
+
+                <!-- 卡片 2 -->
+                <article class="breed-card">
+                    <img src="https://picsum.photos/seed/akita/400/300.jpg" alt="昆明犬" class="breed-img">
+                    <div class="breed-info">
+                        <h3>昆明犬</h3>
+                        <p>我国自主培育的优秀犬种，适应性强，凶猛忠诚，在山地、丛林等复杂环境中表现优异。</p>
+                        <span class="tag">国产优秀</span>
+                        <span class="tag">搜捕</span>
+                    </div>
+                </article>
+
+                <!-- 卡片 3 -->
+                <article class="breed-card">
+                    <img src="https://picsum.photos/seed/terrier/400/300.jpg" alt="马里努阿犬" class="breed-img">
+                    <div class="breed-info">
+                        <h3>马里努阿犬</h3>
+                        <p>精力充沛，运动量大，反应敏捷，具有极强的攻击性和咬合力，适合缉毒和追踪任务。</p>
+                        <span class="tag">敏捷</span>
+                        <span class="tag">缉毒</span>
+                    </div>
+                </article>
+
+                <!-- 卡片 4 -->
+                <article class="breed-card">
+                    <img src="https://picsum.photos/seed/retriever/400/300.jpg" alt="拉布拉多寻回犬" class="breed-img">
+                    <div class="breed-info">
+                        <h3>拉布拉多寻回犬</h3>
+                        <p>性格温顺，嗅觉极佳，不具攻击性，是排爆犬和搜救犬的首选品种。</p>
+                        <span class="tag">搜救</span>
+                        <span class="tag">排爆</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 实战应用 -->
+    <section id="application" class="application-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>警犬的实战应用</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="app-container">
+                <div class="app-list">
+                    <div class="app-item">
+                        <div class="app-icon">🔍</div>
+                        <div class="app-content">
+                            <h3>搜救与追踪</h3>
+                            <p>利用警犬敏锐的嗅觉，在地震废墟、山林迷雾或犯罪现场追踪嫌疑人气味，寻找失踪人员。</p>
+                        </div>
+                    </div>
+                    <div class="app-item">
+                        <div class="app-icon">🧨</div>
+                        <div class="app-content">
+                            <h3>排爆与安检</h3>
+                            <p>排爆犬能够通过嗅觉感知微量炸药成分，在复杂环境中协助排爆手发现并处理爆炸装置。</p>
+                        </div>
+                    </div>
+                    <div class="app-item">
+                        <div class="app-icon">💊</div>
+                        <div class="app-content">
+                            <h3>缉毒与搜毒</h3>
+                            <p>在机场、码头、边境卡口或大型活动安保中，警犬能快速识别藏匿的毒品，切断毒品流通渠道。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="app-list" style="margin-top: 30px;">
+                    <div class="app-item">
+                        <div class="app-icon">🛡️</div>
+                        <div class="app-content">
+                            <h3>巡逻与护卫</h3>
+                            <p>在重要机关、监狱、活动现场进行巡逻警戒，其威慑力能有效震慑不法分子。</p>
+                        </div>
+                    </div>
+                    <div class="app-item">
+                        <div class="app-icon">📄</div>
+                        <div class="app-content">
+                            <h3>文件追踪</h3>
+                            <p>在处理重大案件时，警犬可用于追踪被撕毁文件上的气味或特定物品的遗留痕迹。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 训练流程 -->
+    <section id="training" class="training-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>警犬训练流程</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="training-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>幼犬筛选</h4>
+                    <p>从众多幼犬中挑选具有优良血统、健康体质和敏锐嗅觉的个体。</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>基础服从</h4>
+                    <p>进行定点排便、随行、坐下、等待等基础服从性训练，建立信任关系。</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>专项技能</h4>
+                    <p>根据犬种特性，进行搜索、鉴别、护卫等专项技能的强化训练。</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h4>实战考核</h4>
+                    <p>在模拟实战环境中进行考核，合格后正式配发给一线单位执行任务。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 常见问题 FAQ -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>常见问题解答</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">警犬的寿命一般是多少？</div>
+                    <div class="faq-answer">警犬的寿命通常在10-12年左右，具体取决于犬种、饲养条件和健康状况。在良好的管理下，它们可以健康地服役到8-10岁。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">普通市民可以接触警犬吗？</div>
+                    <div class="faq-answer">在警犬训练基地开放日或特定活动中，经批准后可以近距离接触。但在日常警务活动中，为了安全起见，请保持距离，不要随意投喂或干扰。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">警犬退役后去哪里？</div>
+                    <div class="faq-answer">警犬退役后，通常会由原训导员或符合条件的爱心家庭收养，继续享受幸福的生活。极少数优秀的警犬会继续留在基地从事繁殖工作。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">为什么警犬需要戴嘴套？</div>
+                    <div class="faq-answer">嘴套是警犬的安全装备，主要用于防止在非工作状态下咬伤路人，以及在训练和工作中防止其乱吃东西或咬坏物品，确保公共安全。</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <p style="color: #ccc; font-size: 14px; line-height: 1.6;">
+                        本网站致力于普及警犬知识，展示警犬在维护社会治安中的重要作用。我们尊重每一位警犬训导员的辛勤付出，致敬这些无言的战友。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#intro">基地简介</a></li>
+                        <li><a href="#breeds">警犬品种</a></li>
+                        <li><a href="#application">实战应用</a></li>
+                        <li><a href="#training">训练基地</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>相关资源</h4>
+                    <ul>
+                        <li><a href="#">警犬法律法规</a></li>
+                        <li><a href="#">警犬训练手册</a></li>
+                        <li><a href="#">认养捐赠指南</a></li>
+                        <li><a href="#">联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 警花与警犬知识科普平台. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的 FAQ 折叠交互
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+
+        // 移动端菜单切换（简单模拟）
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const navUl = document.querySelector('nav ul');
+        
+        menuBtn.addEventListener('click', () => {
+            if (navUl.style.display === 'flex') {
+                navUl.style.display = 'none';
+            } else {
+                navUl.style.display = 'flex';
+                navUl.style.flexDirection = 'column';
+                navUl.style.position = 'absolute';
+                navUl.style.top = '70px';
+                navUl.style.left = '0';
+                navUl.style.width = '100%';
+                navUl.style.background = '#fff';
+                navUl.style.padding = '20px';
+                navUl.style.boxShadow = '0 5px 10px rgba(0,0,0,0.1)';
+            }
+        });
+
+        // 滚动时导航栏阴影效果
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)';
+            }
+        });
+    </script>
+</body>
+          </html>
