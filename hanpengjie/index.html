@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="韩鹏杰 - 专注云计算架构设计与企业级数字化解决方案，提供架构咨询、技术分享及行业趋势洞察。">
+    <meta name="keywords" content="韩鹏杰, 云计算, 架构设计, 数字化转型, 技术博客, 企业服务">
+    <title>韩鹏杰-云计算架构与数字化解决方案专家</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-main: #1f2937;
+            --text-secondary: #4b5563;
+            --text-light: #6b7280;
+            --bg-body: #f9fafb;
+            --bg-card: #ffffff;
+            --border-color: #e5e7eb;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-label {
+            display: inline-block;
+            background-color: #dbeafe;
+            color: var(--primary-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: #111827;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 0.5rem 1.25rem;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        .btn-outline:hover {
+            background-color: #eff6ff;
+        }
+
+        .hero-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            max-width: 450px;
+            width: 100%;
+            border: 1px solid var(--border-color);
+        }
+
+        .code-block {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            position: relative;
+        }
+
+        .code-line {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .code-keyword { color: #c084fc; }
+        .code-func { color: #60a5fa; }
+        .code-string { color: #4ade80; }
+        .code-comment { color: #94a3b8; }
+
+        /* Expertise Grid */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .expertise-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary-color);
+        }
+
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            background-color: #eff6ff;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .expertise-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .expertise-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Articles Section */
+        .articles-section {
+            background-color: white;
+        }
+
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .article-card {
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-card:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .article-img {
+            height: 200px;
+            background-color: #e5e7eb;
+            position: relative;
+        }
+        
+        .article-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .article-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-meta {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-bottom: 0.75rem;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .article-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .article-excerpt {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex: 1;
+        }
+
+        .read-more {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        /* About & Stats */
+        .about-section {
+            background-color: #1e293b;
+            color: white;
+        }
+
+        .about-section .section-title {
+            color: white;
+        }
+
+        .about-section .section-subtitle {
+            color: #9ca3af;
+        }
+
+        .about-content {
+            display: flex;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            color: #d1d5db;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item h4 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item span {
+            color: #9ca3af;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .about-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-card {
+            background: rgba(255,255,255,0.05);
+            padding: 3rem;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: white;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-box {
+            background-color: #f8fafc;
+            padding: 3rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .contact-email {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 1.5rem 0;
+            display: block;
+        }
+
+        .contact-email:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111827;
+            color: #9ca3af;
+            padding: 4rem 0 2rem;
+            border-top: 1px solid #374151;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            max-width: 300px;
+            font-size: 0.9rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-col ul li a {
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">韩鹏杰<span style="color:var(--text-main)">.IO</span></a>
+            <nav class="nav-links">
+                <a href="#expertise" class="active">专业领域</a>
+                <a href="#articles">技术文章</a>
+                <a href="#about">关于我</a>
+                <a href="#contact">联系合作</a>
+            </nav>
+            <a href="#contact" class="btn-primary">预约咨询</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <span class="hero-label">云计算架构师</span>
+                    <h1>构建高可用、可扩展的<br>数字化技术架构</h1>
+                    <p>专注于企业级云原生架构设计、微服务治理及数字化转型落地。提供从顶层设计到代码实现的全方位技术咨询服务。</p>
+                    <div class="hero-buttons">
+                        <a href="#articles" class="btn-primary">阅读技术博客</a>
+                        <a href="#contact" class="btn-outline">合作咨询</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-card">
+                        <div style="display:flex; justify-content:space-between; margin-bottom:1rem;">
+                            <span style="font-weight:600; color:var(--text-main)">架构概览</span>
+                            <span style="font-size:0.8rem; color:var(--text-light)">v2.0.4</span>
+                        </div>
+                        <div style="height:100px; background:#f3f4f6; border-radius:8px; display:flex; align-items:center; justify-content:center; margin-bottom:1rem;">
+                            <span style="color:var(--text-light); font-size:0.9rem;">System Diagram Preview</span>
+                        </div>
+                        <div class="code-block">
+                            <span class="code-line"><span class="code-keyword">const</span> <span class="code-func">architecture</span> = {</span>
+                            <span class="code-line">&nbsp;&nbsp;cloud: <span class="code-string">'AWS / Azure'</span>,</span>
+                            <span class="code-line">&nbsp;&nbsp;style: <span class="code-string">'Microservices'</span>,</span>
+                            <span class="code-line">&nbsp;&nbsp;scale: <span class="code-string">'High Availability'</span></span>
+                            <span class="code-line">};</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expertise Section -->
+        <section id="expertise" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">核心专业领域</h2>
+                    <p class="section-subtitle">深耕技术底层，赋能业务增长</p>
+                </div>
+                <div class="expertise-grid">
+                    <article class="expertise-card">
+                        <div class="icon-box">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                        </div>
+                        <h3>云原生架构设计</h3>
+                        <p>基于 Kubernetes、Docker 等容器技术，设计高可用的微服务架构体系，提升系统弹性与运维效率。</p>
+                    </article>
+                    <article class="expertise-card">
+                        <div class="icon-box">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        </div>
+                        <h3>安全合规体系</h3>
+                        <p>构建企业级安全防御体系，包括 IAM 权限管理、数据加密、审计日志及合规性审查流程。</p>
+                    </article>
+                    <article class="expertise-card">
+                        <div class="icon-box">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <h3>DevOps 工程实践</h3>
+                        <p>实施 CI/CD 自动化流水线，优化部署流程，确保代码质量与发布效率，实现持续集成与交付。</p>
+                    </article>
+                    <article class="expertise-card">
+                        <div class="icon-box">
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                        </div>
+                        <h3>数据中台建设</h3>
+                        <p>整合多源数据，构建数据治理与数据仓库体系，通过数据分析驱动业务决策与智能化升级。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Articles Section -->
+        <section id="articles" class="section articles-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">技术文章与观点</h2>
+                    <p class="section-subtitle">分享实战经验与前沿技术思考</p>
+                </div>
+                <div class="article-grid">
+                    <article class="article-card">
+                        <div class="article-img">
+                            <img src="https://picsum.photos/seed/tech1/600/400" alt="Cloud Architecture">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span>架构设计</span>
+                                <span>2023-10-24</span>
+                            </div>
+                            <h3 class="article-title"><a href="#">从单体到微服务：企业级架构演进的最佳实践</a></h3>
+                            <p class="article-excerpt">探讨在业务快速增长期，如何安全、平滑地将传统单体应用拆分为微服务架构，并解决分布式系统带来的挑战。</p>
+                            <a href="#" class="read-more">阅读全文 &rarr;</a>
+                        </div>
+                    </article>
+                    <article class="article-card">
+                        <div class="article-img">
+                            <img src="https://picsum.photos/seed/tech2/600/400" alt="Security">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span>安全运维</span>
+                                <span>2023-09-15</span>
+                            </div>
+                            <h3 class="article-title"><a href="#">云原生环境下的零信任安全模型构建指南</a></h3>
+                            <p class="article-excerpt">深入解析零信任架构在云原生环境中的应用，包括服务间认证、动态权限控制及入侵检测系统的集成方案。</p>
+                            <a href="#" class="read-more">阅读全文 &rarr;</a>
+                        </div>
+                    </article>
+                    <article class="article-card">
+                        <div class="article-img">
+                            <img src="https://picsum.photos/seed/tech3/600/400" alt="DevOps">
+                        </div>
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span>DevOps</span>
+                                <span>2023-08-20</span>
+                            </div>
+                            <h3 class="article-title"><a href="#">Kubernetes 网络策略优化与性能调优实战</a></h3>
+                            <p class="article-excerpt">分享在生产环境中优化 K8s 网络性能的具体策略，包括 CNI 插件选择、Pod 网络策略配置及流量管控。</p>
+                            <a href="#" class="read-more">阅读全文 &rarr;</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section about-section">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <div class="section-header" style="text-align: left; margin-bottom: 1.5rem;">
+                            <h2 class="section-title">关于韩鹏杰</h2>
+                            <p class="section-subtitle">专注于技术落地与价值创造</p>
+                        </div>
+                        <p>拥有超过 10 年的互联网与云计算领域从业经验，曾主导多个大型企业的核心系统架构重构与数字化转型项目。擅长将复杂的业务需求转化为清晰、可落地的技术方案，致力于通过技术创新推动业务增长。</p>
+                        <p>不仅是技术的实践者，也是知识的传播者，热衷于在技术社区分享架构设计经验与行业见解，帮助开发者与团队提升技术能力。</p>
+                        <div class="stats-container">
+                            <div class="stat-item">
+                                <h4>10+</h4>
+                                <span>年从业经验</span>
+                            </div>
+                            <div class="stat-item">
+                                <h4>50+</h4>
+                                <span>企业服务案例</span>
+                            </div>
+                            <div class="stat-item">
+                                <h4>100+</h4>
+                                <span>技术文章输出</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-visual">
+                        <div class="profile-card">
+                            <div class="profile-avatar">韩</div>
+                            <h3>韩鹏杰</h3>
+                            <p style="color:#9ca3af; margin-bottom:1rem;">云计算架构师</p>
+                            <div style="display:flex; justify-content:center; gap:1rem;">
+                                <a href="#" style="color:white; font-size:1.5rem;">G</a>
+                                <a href="#" style="color:white; font-size:1.5rem;">L</a>
+                                <a href="#" style="color:white; font-size:1.5rem;">T</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <div class="contact-container">
+                    <div class="section-header">
+                        <h2 class="section-title">联系与合作</h2>
+                        <p class="section-subtitle">期待与您共同探讨技术方案</p>
+                    </div>
+                    <div class="contact-box">
+                        <p style="color:var(--text-secondary); margin-bottom:0.5rem;">如果您有架构咨询、技术培训或项目合作的需求，欢迎随时联系。</p>
+                        <a href="mailto:contact@example.com" class="contact-email">contact@hanpengjie.com</a>
+                        <p style="font-size:0.9rem; color:var(--text-light);">通常在 24 小时内回复</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>韩鹏杰<span style="color:var(--primary-color)">.IO</span></h3>
+                    <p>专注云计算架构设计与企业级数字化解决方案，致力于帮助企业在数字时代构建强大的技术基础设施。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#expertise">专业领域</a></li>
+                        <li><a href="#articles">技术文章</a></li>
+                        <li><a href="#about">关于我</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>资源</h4>
+                    <ul>
+                        <li><a href="#">开源项目</a></li>
+                        <li><a href="#">白皮书下载</a></li>
+                        <li><a href="#">技术社区</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li>contact@hanpengjie.com</li>
+                        <li>北京市朝阳区</li>
+                        <li>WeChat: HanPengJieDev</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 韩鹏杰. All rights reserved. 本网站内容仅供学习与参考。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+  </html>
